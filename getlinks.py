@@ -14,15 +14,9 @@ def is_valid(url):
 
 
 def get_all_website_links(url):
-
-	# all URLs of `url`
-	# domain name of the URL without the protocol
 	domain_name = urlparse(url).netloc
-	# initialize an HTTP session
 	session = HTMLSession()
-	# make HTTP request & retrieve response
 	response = session.get(url, verify=False)
-	# execute Javascript
 	try:
 	    response.html.render()
 	except:
@@ -32,24 +26,17 @@ def get_all_website_links(url):
 	for a_tag in soup.findAll("a"):
 	    href = a_tag.attrs.get("href")
 	    if href == "" or href is None:
-	        # href empty tag
 	        continue
-	    # join the URL if it's relative (not absolute link)
 	    href = urljoin(url, href)
 	    parsed_href = urlparse(href)
-	    # remove URL GET parameters, URL fragments, etc.
 	    href = parsed_href.scheme + "://" + parsed_href.netloc + parsed_href.path
 	    if not is_valid(href):
-	        # not a valid URL
 	        continue
 	    if domain_name not in href:
 
 	        href = str(href)
-	        # external link
 	        if href not in external_urls:
 	            external_urls.append(href)
-
-
 	            if ('instagram' in href) or ('facebook' in href) or ('cnn'  in href) or ('etsy'  in href) or ('linkedin'  in href) or ('twitter'  in href) or ('reddit'  in href) or ('pinterest'  in href) or ('zoom'  in href) or ('forbes'  in href) or ('tumblr'  in href) or ('deviantart'  in href) or ('imgur'  in href) or ('vimeo'  in href) or ('weheartit'  in href) or ('dailymotion'  in href) or ('youtube'  in href) or ('tiktok'  in href) or ('squarespace'  in href) or ('medium'  in href) or('foursquare'  in href) or ('triller'  in href) or ('techcrunch'  in href) or ('wordpress'  in href) or ('apple'  in href) or ('samsung'  in href):
 	            	continue
 	            else:
@@ -73,8 +60,6 @@ if __name__ == "__main__":
 
     domain_name = urlparse(url).netloc
 
-
-    # save the external links to a file
     with open(f"{domain_name}_external_links.txt", "w") as f:
         for href in external_urls:
             print(href.strip(), file=f)
