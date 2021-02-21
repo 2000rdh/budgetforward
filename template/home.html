@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Budget Forward</title>
+​
+  <style>
+    h1 {
+        text-align: center;
+      }
+​
+    div {
+      width: 300px white;
+      font-size: 26px;
+    }
+    .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+    
+body {
+  background-color: #92d1e7;
+}
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000000;
+    text-align: center;
+  }
+​
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+​
+  .topnav a {
+    float: center;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 16px 14px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+​
+  .topnav a:hover {
+    background-color: #00000;
+    color: black;
+  }
+​
+  .topnav a.active {
+    background-color: #58A1A9;
+    color: white;
+  }
+  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+​
+  </head>
+  <body>
+    
+    <h1>My Budget</h1>
+​
+​
+       <form action="/visual" method="POST">
+        Income:    <input type="text" name="income" id="income"><br/>
+        Rent/Bills:    <input type="text" name="rentBillsAmount" id="rentBillsAmount"><br/>
+        
+        Food:   <input type="text" name="foodAmount" id="foodAmount"><br/>
+        
+        Kids:    <input type="text" name="kidsAmount" id="kidsAmount"><br/>
+       
+        Home and Gifts:    <input type="text" name="homeAndGiftsAmount" id="homeAndGiftsAmount"><br/>
+      
+        Fitness:    <input type="text" name="fitnessAmount" id="fitnessAmount"><br/>
+       
+        Beauty and Wellness:    <input type="text" name="beautyAndWellnessAmount" id="beautyAndWellnessAmount"><br/>
+
+        <form action="/visual">
+        <input type="submit" value="Get Recommendations" />
+      </form>
+        
+        <!-- <button id="vis" type="submit" value="submit" class="btn btn-success">Visualize</button><br/><br/> -->
+
+  
+      </form>
+​
+      <br>
+      <br>
+​
+​
+​
+​
+<br>
+<br>
+<!--  
+<div>
+  <table id="budgetTable" class="center">
+    <thead>
+      <tr style="background-color:rgb(255, 255, 255)">
+        <th style="width: 150px;">Category</th>
+        <th style="width: 250px;">Amount</th>
+        <th style="width: 120px class=fa fa-trash"></th>
+      </tr>
+​
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+​
+​
+    <script>
+      var Amounts = [];
+      var rowCount = 1;
+​
+      function addToTable() {
+        Amounts.push(document.getElementById("rentBillsAmount").value);
+        Amounts.push(document.getElementById("foodAmount").value);
+        Amounts.push(document.getElementById("kidsAmount").value);
+        Amounts.push(document.getElementById("homeAndGiftsAmount").value);
+        Amounts.push(document.getElementById("fitnessAmount").value);
+        Amounts.push(document.getElementById("beautyAndWellnessAmount").value);
+​
+        
+        var table = document.getElementById("budgetTable");
+        var row = table.insertRow(rowCount);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell2.innerHTML = Amounts[rowCount - 1];
+        rowCount++;
+        modal.style.display = "none";
+      }
+    </script>
+-->
+​
+​
+    
+   
+​
+​
+​
+  </body>
+</html>
