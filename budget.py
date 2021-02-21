@@ -27,17 +27,13 @@ def home():
 @app.route("/login", methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
-        return render_template("login.html")
-    # if request.method == 'POST':
-        # user = request.form['user']
-        # pwd = request.form['pass']
-    
+        return render_template("login.html")    
 
 @app.route("/budget", methods=['GET', 'POST'])
 def budget():
     if request.method == 'GET':
 
-        cursor.execute("SELECT * FROM ShopsList")
+        cursor.execute("SELECT * FROM [redacted]")
         myresult = cursor.fetchall()
         print(random.choice(myresult))
         return render_template("home.html")
@@ -51,7 +47,7 @@ def res():
     l = [0, 0, 0, 0, 0, 0, 0]
     x = 0
     while x < 7:
-        cursor.execute("SELECT * FROM ShopsList")
+        cursor.execute("SELECT * FROM [redacted]")
         myresult = cursor.fetchall()
         l[x] = (random.choice(myresult))
         x+=1
@@ -82,10 +78,6 @@ def res():
 #     plt.savefig('piechart.png')
 #     pic = os.path('piechart.png')
 #     return render_template("vis.html", user_image = pic)
-
-
-
-
    
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
