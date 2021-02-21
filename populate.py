@@ -20,10 +20,10 @@ with open("www.forbes.com_external_links.txt", "r") as a_file:
 
     l = "\"" + line + "\""
 
-    # query = 'INSERT INTO AllShops (SHOP) VALUES (%s)'
+    # query = 'INSERT INTO [redacted] VALUES (%s)'
     # val = (line)
 
     cursor = mydb.cursor()
-    cursor.execute("INSERT INTO ShopsList (Shops) VALUES(%s)" % l)
+    cursor.execute("INSERT INTO [redacted] VALUES(%s)" % l)
 
     mydb.commit()
